@@ -1,0 +1,22 @@
+!!! 5
+%html#watch-video(lang="en-US")
+  %head
+    %title
+      MyFLiX
+      |
+      = @video.title
+    %meta(charset="UTF-8")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    = csrf_meta_tag
+    = stylesheet_link_tag 'watch_video'
+    = javascript_include_tag 'https://d3cbe17ay1mf41.cloudfront.net/jwplayer.js'
+  %body
+    #mediaplayer
+    :javascript
+      jwplayer('mediaplayer').setup({
+      file: "rtmp://saqeq2hwa5lve.cloudfront.net/cfx/st/#{@video.file_name}",
+      title: "#{@video.title}",
+      image: "#{@video.large_cover_url}",
+      width: "100%",
+      height: "100%"
+      });

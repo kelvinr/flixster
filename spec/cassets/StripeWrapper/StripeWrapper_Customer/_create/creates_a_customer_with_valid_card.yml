@@ -1,0 +1,240 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/tokens
+    body:
+      encoding: US-ASCII
+      string: card[number]=4242424242424242&card[exp_month]=6&card[exp_year]=2020&card[cvc]=314
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Stripe/v1 RubyBindings/1.21.0
+      Authorization:
+      - Bearer sk_test_ul22oh1t65Ts0Ygsq7au2E4A
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"1.21.0","lang":"ruby","lang_version":"2.1.6 p336 (2015-04-13)","platform":"x86_64-linux","engine":"ruby","publisher":"stripe","uname":"Linux
+        version 3.13.0-37-generic (buildd@kapok) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1)
+        ) #64-Ubuntu SMP Mon Sep 22 21:28:38 UTC 2014","hostname":"kelvin-MS-7693"}'
+      Content-Length:
+      - '81'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 09 Jun 2015 10:56:14 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '748'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Request-Id:
+      - req_qBInpPHvi7E1udh5
+      Stripe-Version:
+      - '2015-04-07'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "tok_16BkOwBJ06TFLyLg0V5UJWm4",
+          "livemode": false,
+          "created": 1433847374,
+          "used": false,
+          "object": "token",
+          "type": "card",
+          "card": {
+            "id": "card_16BkOwBJ06TFLyLgh6j5eseo",
+            "object": "card",
+            "last4": "4242",
+            "brand": "Visa",
+            "funding": "credit",
+            "exp_month": 6,
+            "exp_year": 2020,
+            "fingerprint": "3zadDNu4t8ZEhLHh",
+            "country": "US",
+            "name": null,
+            "address_line1": null,
+            "address_line2": null,
+            "address_city": null,
+            "address_state": null,
+            "address_zip": null,
+            "address_country": null,
+            "cvc_check": "unchecked",
+            "address_line1_check": null,
+            "address_zip_check": null,
+            "dynamic_last4": null,
+            "metadata": {}
+          },
+          "client_ip": "32.212.162.129"
+        }
+    http_version: 
+  recorded_at: Tue, 09 Jun 2015 10:56:14 GMT
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/customers
+    body:
+      encoding: US-ASCII
+      string: card=tok_16BkOwBJ06TFLyLg0V5UJWm4&email=william.cormier%40champlinanderson.biz&plan=basic
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Stripe/v1 RubyBindings/1.21.0
+      Authorization:
+      - Bearer sk_test_ul22oh1t65Ts0Ygsq7au2E4A
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"1.21.0","lang":"ruby","lang_version":"2.1.6 p336 (2015-04-13)","platform":"x86_64-linux","engine":"ruby","publisher":"stripe","uname":"Linux
+        version 3.13.0-37-generic (buildd@kapok) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1)
+        ) #64-Ubuntu SMP Mon Sep 22 21:28:38 UTC 2014","hostname":"kelvin-MS-7693"}'
+      Content-Length:
+      - '89'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 09 Jun 2015 10:56:15 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2334'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Request-Id:
+      - req_FVwYhF2X4P7EByUf
+      Stripe-Version:
+      - '2015-04-07'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "object": "customer",
+          "created": 1433847374,
+          "id": "cus_6OXT3ZnDUvTHiH",
+          "livemode": false,
+          "description": null,
+          "email": "william.cormier@champlinanderson.biz",
+          "delinquent": false,
+          "metadata": {},
+          "subscriptions": {
+            "object": "list",
+            "total_count": 1,
+            "has_more": false,
+            "url": "/v1/customers/cus_6OXT3ZnDUvTHiH/subscriptions",
+            "data": [
+              {
+                "id": "sub_6OXTIesWs4AipW",
+                "plan": {
+                  "interval": "month",
+                  "name": "myflix",
+                  "created": 1433828679,
+                  "amount": 999,
+                  "currency": "usd",
+                  "id": "basic",
+                  "object": "plan",
+                  "livemode": false,
+                  "interval_count": 1,
+                  "trial_period_days": null,
+                  "metadata": {},
+                  "statement_descriptor": "myflix monthly charge"
+                },
+                "object": "subscription",
+                "start": 1433847375,
+                "status": "active",
+                "customer": "cus_6OXT3ZnDUvTHiH",
+                "cancel_at_period_end": false,
+                "current_period_start": 1433847375,
+                "current_period_end": 1436439375,
+                "ended_at": null,
+                "trial_start": null,
+                "trial_end": null,
+                "canceled_at": null,
+                "quantity": 1,
+                "application_fee_percent": null,
+                "discount": null,
+                "tax_percent": null,
+                "metadata": {}
+              }
+            ]
+          },
+          "discount": null,
+          "account_balance": 0,
+          "currency": "usd",
+          "sources": {
+            "object": "list",
+            "total_count": 1,
+            "has_more": false,
+            "url": "/v1/customers/cus_6OXT3ZnDUvTHiH/sources",
+            "data": [
+              {
+                "id": "card_16BkOwBJ06TFLyLgh6j5eseo",
+                "object": "card",
+                "last4": "4242",
+                "brand": "Visa",
+                "funding": "credit",
+                "exp_month": 6,
+                "exp_year": 2020,
+                "fingerprint": "3zadDNu4t8ZEhLHh",
+                "country": "US",
+                "name": null,
+                "address_line1": null,
+                "address_line2": null,
+                "address_city": null,
+                "address_state": null,
+                "address_zip": null,
+                "address_country": null,
+                "cvc_check": "pass",
+                "address_line1_check": null,
+                "address_zip_check": null,
+                "dynamic_last4": null,
+                "metadata": {},
+                "customer": "cus_6OXT3ZnDUvTHiH"
+              }
+            ]
+          },
+          "default_source": "card_16BkOwBJ06TFLyLgh6j5eseo"
+        }
+    http_version: 
+  recorded_at: Tue, 09 Jun 2015 10:56:15 GMT
+recorded_with: VCR 2.9.3

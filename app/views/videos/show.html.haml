@@ -1,0 +1,48 @@
+%article.video
+  .container
+    .row
+      .video_large_cover.col-sm-7.col-sm-offset-1
+        = image_tag @video.large_cover_url
+      .video_info.col-sm-3
+        %header
+          %h3= @video.title
+          %span Rating:
+          = @video.rating
+        %p= @video.description
+        .actions
+          = link_to "Watch Now", watch_video_path(@video), class: "btn btn-primary"
+          = link_to "+ My Queue", queue_items_path(video_id: @video.id), method: :post, class: 'btn btn-default' unless current_user.queued_video?(@video)
+
+%section.reviews.container
+  .row
+    .col-sm-12.col-sm-offset-1
+      = form_for [@video, @review] do |f|
+        %fieldset
+          .form-group
+            %label Rate this video
+            .row
+              .col-sm-3
+                = f.select :rating, options, class: 'form-control'
+          .form-group
+            %label Write Review
+            .row
+              .col-sm-8
+                = f.text_area :comment, rows: 6, class: 'form-control'
+        %fieldset.form-group.actions.clearfix
+          %input(type="submit" value="Submit" class="btn")
+          = link_to "Cancel", @video
+      %header
+        %h3 User Reviews (#{@video.reviews.count})
+      %ul
+        -@reviews.each do |review|
+          %article.review
+            %li.row
+              .col-sm-4
+                %span
+                  = surround "Rating: ", "/5" do
+                    = review.rating
+                %p
+                  = precede "by " do
+                    = link_to review.user.full_name, review.user
+              .col-sm-8
+                %p= review.comment
